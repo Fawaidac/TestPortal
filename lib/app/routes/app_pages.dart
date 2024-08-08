@@ -17,7 +17,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.FIRST,
-      page: () => const FirstView(),
+      page: () => FirstView(),
       binding: FirstBinding(),
     ),
     GetPage(

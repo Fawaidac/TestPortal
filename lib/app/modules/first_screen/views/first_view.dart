@@ -4,7 +4,11 @@ import 'package:get/get.dart';
 import '../controllers/first_controller.dart';
 
 class FirstView extends GetView<FirstController> {
-  const FirstView({Key? key}) : super(key: key);
+  FirstView({Key? key}) : super(key: key);
+
+  @override
+  final fController = Get.put(FirstController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
