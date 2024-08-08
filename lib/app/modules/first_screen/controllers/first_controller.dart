@@ -32,7 +32,6 @@ class FirstController extends GetxController {
       Get.snackbar(
         'Error',
         'Please enter your name',
-        snackPosition: SnackPosition.BOTTOM,
       );
     }
   }

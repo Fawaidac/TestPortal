@@ -71,7 +71,9 @@ class FirstView extends GetView<FirstController> {
                 margin: const EdgeInsets.only(top: 8),
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.goToSecondScreen();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: buttonBackground,
                       shadowColor: Colors.transparent,
