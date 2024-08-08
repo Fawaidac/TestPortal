@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class SecondController extends GetxController {
   var name = ''.obs;
-  var selectedUser = ''.obs;
+  var selectedUser = 'Selected User'.obs;
 
   @override
   void onInit() {

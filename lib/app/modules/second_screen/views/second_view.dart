@@ -7,7 +7,6 @@ import '../../../routes/app_pages.dart';
 import '../controllers/second_controller.dart';
 
 class SecondView extends GetView<SecondController> {
-  const SecondView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +35,16 @@ class SecondView extends GetView<SecondController> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(top: 100),
-                child: Text(
-                  'Selected User',
-                  textAlign: TextAlign.center,
-                  style: AppFonts.poppins(
-                      fontSize: 14, color: black, fontWeight: FontWeight.bold),
-                ),
+                child: Obx(() {
+                  return Text(
+                    controller.selectedUser.value,
+                    textAlign: TextAlign.center,
+                    style: AppFonts.poppins(
+                        fontSize: 20,
+                        color: black,
+                        fontWeight: FontWeight.bold),
+                  );
+                }),
               ),
             ),
           ],
@@ -53,8 +56,11 @@ class SecondView extends GetView<SecondController> {
         margin: const EdgeInsets.only(top: 8),
         width: MediaQuery.of(context).size.width,
         child: ElevatedButton(
-            onPressed: () {
-              Get.toNamed(Routes.THIRD);
+            onPressed: () async {
+              final selectedUserName = await Get.toNamed(Routes.THIRD);
+              if (selectedUserName != null) {
+                controller.selectedUser.value = selectedUserName;
+              }
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: buttonBackground,
